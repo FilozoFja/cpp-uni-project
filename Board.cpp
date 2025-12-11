@@ -6,6 +6,7 @@
 
 
 #include "Board.h"
+#include "Cell.h"
 
 #include <stdexcept>
 
@@ -30,6 +31,7 @@ Board::Board(int rows, int columns, bool boundsEnabled) {
 }
 Board::~Board() {
     for (int i = 0; i < grid.size(); i++) {
-        grid.
+        grid[i].clear();
     }
+    grid.clear();
 }

@@ -14,6 +14,7 @@ private:
 public:
     Cell(): state(HEALTHY) {}
     void setPos(int newX, int newY);
+    void setState(CellState newState);
     int getX()const ;
     int getY()const ;
     CellState getState()const;
