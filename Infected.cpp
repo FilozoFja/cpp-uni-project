@@ -6,7 +6,7 @@
 
 #include <cstdlib>
 
-bool Infected::updateCell(Board &board, std::vector<Cell *> cellToCheck) {
+bool Infected::updateCell(Board& board, std::vector<Cell *> cellToCheck) {
     for (Cell* neightboor : cellToCheck) {
         if ( neightboor != nullptr and neightboor->getState() == HEALTHY) {
             if (rand() % 2 == 0) {

@@ -12,4 +12,6 @@ add_executable(untitled main.cpp
         Board.h
         Infected.cpp
         Infected.h
+        Immune.cpp
+        Immune.h
 )
