@@ -16,11 +16,13 @@ private:
     bool boundsEnabled;
     std::vector<std::vector<Cell>> grid;
 public:
+    //Constructor
     Board(int rows, int columns, bool boundsEnabled);
-    ~Board();
 
-    Cell *getCell(int x, int y);
-    Cell *getCellOverBounds(int x, int y);
+    //Cell related
+    Cell* getCell(int row, int col);
+    std::vector<Cell *> getCellsAround(int row, int col);
+
 
 };
 

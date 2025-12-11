@@ -5,19 +5,33 @@
 #ifndef UNTITLED_CELL_H
 #define UNTITLED_CELL_H
 
-enum CellState {HEALTHY, IMMUNE, INFECTED};
+//Undefined = empty
+enum CellState {UNDEFINED ,HEALTHY, IMMUNE, INFECTED};
 
 class Cell {
 private:
     int x,y;
-    CellState state;
+    CellState currentState;
+    CellState nextState;
 public:
-    Cell(): state(HEALTHY) {}
+    //Constructor
+    Cell(): x(0), y(0), currentState(HEALTHY), nextState(UNDEFINED) {}
+
+    //Position
     void setPos(int newX, int newY);
-    void setState(CellState newState);
-    int getX()const ;
-    int getY()const ;
-    CellState getState()const;
+    [[nodiscard]] int getX()const ;
+    [[nodiscard]] int getY()const ;
+
+    //Current state
+    [[nodiscard]] CellState getCurrentState()const;
+
+    //State swapper (
+    void swapNextStateToCurrent();
+
+    //Next state
+    void setNextState(CellState newNextState);
+    [[nodiscard]] bool haveNextState() const;
+    void cleanNextState();
 
 };
 

@@ -1,18 +1,37 @@
-//
-// Created by kornel on 12/9/25.
-//
-
 #include "Cell.h"
+#include <stdexcept>
 
-int Cell::getX()const {return x;}
-int Cell::getY()const {return y;}
-CellState Cell::getState()const {return state;}
-
-void Cell::setPos(int newX, int newY) {
+void Cell::setPos(const int newX,const int newY) {
     x = newX;
     y = newY;
 }
 
-void Cell::setState(CellState newState) {
-    state = newState;
+int Cell::getX() const { return x; }
+int Cell::getY() const { return y; }
+
+CellState Cell::getCurrentState() const {
+    return currentState;
+}
+
+void Cell::swapNextStateToCurrent() {
+    if (haveNextState()) {
+        currentState = nextState;
+        cleanNextState();
+    }
+}
+
+void Cell::setNextState(const CellState newNextState) {
+    if (nextState == UNDEFINED) {
+        nextState = newNextState;
+    } else {
+        throw std::logic_error("Cell already has a next state assigned for this tick.");
+    }
+}
+
+bool Cell::haveNextState() const {
+    return nextState != UNDEFINED;
+}
+
+void Cell::cleanNextState() {
+    nextState = UNDEFINED;
 }
