@@ -6,18 +6,31 @@
 #define UNTITLED_SKINPROBLEM_H
 
 #include <vector>
-
-#include "Board.h"
-#include "Cell.h"
+class Board;
+class Cell;
 
 class SkinProblem {
 protected:
-    Cell* cell;
+    std::vector<Cell*> cells;
     int time;
 public:
-    SkinProblem(Cell* cell, int time): cell(cell), time(time) {};
-    virtual ~SkinProblem() {}
-    virtual bool updateCell (Board& board, std::vector<Cell*> cellToCheck ) =0;
+    //Constructor
+    SkinProblem(Cell* originCell, int time) ;
+
+    //Destructor
+    virtual ~SkinProblem() = default;
+
+    //Adding cell to vector
+    void addCell(Cell* cell);
+
+    //Getting list of cells because run is not inheriting from skinproblem
+    std::vector<Cell*>& getCells();
+
+    //Round time
+    bool tick();
+
+    //Adding one of two effect
+    virtual void applyEffect(Board &board) =0;
 };
 
 

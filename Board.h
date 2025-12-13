@@ -23,7 +23,9 @@ public:
     Cell* getCell(int row, int col);
     std::vector<Cell *> getCellsAround(int row, int col);
 
-
+    //Board size
+    int getRows();
+    int getCols();
 };
 
 

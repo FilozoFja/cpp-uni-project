@@ -13,7 +13,7 @@ class Cell;
 class Immune: public SkinProblem {
 public:
     Immune(Cell* cell, int infectionTime): SkinProblem(cell, infectionTime){}
-    bool updateCell(Board& board, std::vector<Cell *> cellToCheck ) override;
+    void applyEffect(Board &board) override {}
 };
 
 

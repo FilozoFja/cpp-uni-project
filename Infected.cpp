@@ -3,19 +3,18 @@
 //
 
 #include "Infected.h"
-
+#include "Board.h"
 #include <cstdlib>
 
-bool Infected::updateCell(Board& board, std::vector<Cell *> cellToCheck) {
-    for (Cell* neightboor : cellToCheck) {
-        if ( neightboor != nullptr and neightboor->getState() == HEALTHY) {
-            if (rand() % 2 == 0) {
-                neightboor->setState(INFECTED);
+void Infected::applyEffect(Board &board){
+    for(auto cell : cells){
+        std::vector<Cell *> cellsToCheck = board.getCellsAround( cell->getX(), cell->getY());
+        for(auto cellToCheck: cellsToCheck){
+            if(cellToCheck->getCurrentState() == HEALTHY and cellToCheck->haveNextState() == false){
+                if(( rand() % 100 ) < 50 ){
+                    cellToCheck->setNextState(INFECTED);
+                }
             }
-        }
-        this->time -= 1;
-        if (neightboor != nullptr and neightboor -> getState() == INFECTED and time <= 0) {
-
         }
     }
 }

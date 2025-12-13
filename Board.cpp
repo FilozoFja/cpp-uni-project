@@ -62,4 +62,7 @@ std::vector<Cell *> Board::getCellsAround(const int row, const int col) {
     return cellsToReturn;
 }
 
+int Board::getRows(){ return rows;}
+int Board::getCols(){ return columns;}
+
 
