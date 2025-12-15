@@ -19,8 +19,6 @@ add_executable(untitled
         Immune.h
         Run.h
         Run.cpp
-        GameView.cpp
-        GameView.h
 )
 
 # ZMIANA: 'PRIVATE' wielkimi literami
