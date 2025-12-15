@@ -1,5 +1,3 @@
-
-
 #ifndef UNTITLED_RUN_H
 #define UNTITLED_RUN_H
 
@@ -13,19 +11,25 @@ private:
     Board board;
     std::vector<SkinProblem*> problems;
 
-public:
-    //Constructor
-    Run(int rows, int cols);
+    int settingsInfectionTime;
+    int settingsImmunityTime;
 
-    //Destructor to clean all pointers
+public:
+    Run(int rows, int cols);
     ~Run();
 
-    //Main updating loop
     void updateGame();
-
-    //GUI clicking input
     void spawnInfection(int r, int c);
+    Board& getBoard();
 
+    void setInfectionTime(int t);
+    void setImmunityTime(int t);
+
+    [[nodiscard]]int getInfectionTime() const;
+    [[nodiscard]]int getImmunityTime() const;
+
+    void setBoardBounds(bool enabled);
+    [[nodiscard]]bool isBoundsEnabled() const;
 };
 
 #endif //UNTITLED_RUN_H

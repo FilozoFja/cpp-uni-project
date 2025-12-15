@@ -1,9 +1,12 @@
-cmake_minimum_required(VERSION 4.0)
+cmake_minimum_required(VERSION 3.20)
 project(untitled)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(untitled main.cpp
+find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+
+add_executable(untitled
+        main.cpp
         Cell.cpp
         Cell.h
         SkinProblem.cpp
@@ -14,4 +17,11 @@ add_executable(untitled main.cpp
         Infected.h
         Immune.cpp
         Immune.h
+        Run.h
+        Run.cpp
+        GameView.cpp
+        GameView.h
 )
+
+# ZMIANA: 'PRIVATE' wielkimi literami
+target_link_libraries(untitled PRIVATE sfml-graphics sfml-window sfml-system)

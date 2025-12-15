@@ -14,25 +14,19 @@ private:
     CellState currentState;
     CellState nextState;
 public:
-    //Constructor
     Cell(): x(0), y(0), currentState(HEALTHY), nextState(UNDEFINED) {}
 
-    //Position
     void setPos(int newX, int newY);
     [[nodiscard]] int getX()const ;
     [[nodiscard]] int getY()const ;
 
-    //Current state
     [[nodiscard]] CellState getCurrentState()const;
 
-    //State swapper (
     void swapNextStateToCurrent();
 
-    //Next state
     void setNextState(CellState newNextState);
     [[nodiscard]] bool haveNextState() const;
     void cleanNextState();
-
 };
 
 

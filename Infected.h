@@ -11,12 +11,9 @@
 
 
 class Infected : public SkinProblem {
-private:
-
 public:
     Infected(Cell* cell, int infectionTime): SkinProblem(cell, infectionTime){}
 
-    // Overriding the virtual class
     void applyEffect(Board &board) override;
 };
 

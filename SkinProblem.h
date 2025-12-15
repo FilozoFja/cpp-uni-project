@@ -14,22 +14,16 @@ protected:
     std::vector<Cell*> cells;
     int time;
 public:
-    //Constructor
     SkinProblem(Cell* originCell, int time) ;
 
-    //Destructor
     virtual ~SkinProblem() = default;
 
-    //Adding cell to vector
     void addCell(Cell* cell);
 
-    //Getting list of cells because run is not inheriting from skinproblem
     std::vector<Cell*>& getCells();
 
-    //Round time
     bool tick();
 
-    //Adding one of two effect
     virtual void applyEffect(Board &board) =0;
 };
 

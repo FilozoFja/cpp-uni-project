@@ -65,4 +65,6 @@ std::vector<Cell *> Board::getCellsAround(const int row, const int col) {
 int Board::getRows(){ return rows;}
 int Board::getCols(){ return columns;}
 
+void Board::setBoundsEnabled(bool enabled) {boundsEnabled = enabled;}
+bool Board::isBoundsEnabled() const { return boundsEnabled;};
 
